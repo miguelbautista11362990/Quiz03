@@ -1,0 +1,121 @@
+#dot takes two vectors and returns the corresponding dot product of the two vectors.
+def dot(vector01,vector02):
+  '''
+  This function takes two vectors as it's arguments. It then dots both vectors by their corresponding elements before returning the final output of the dot product.
+  ''' 
+  if len(vector01) != len(vector02):
+      print('invalid input')
+  else:
+    total = 0
+    for i in range(len(vector01)):
+      total += vector01[i] * vector02[i]
+  return total
+# The funciton above first sets a test case to make sure the proper dimensions are obtained inorder to be able to perform the dot product of the two vectors. If the dimensions are incorrect the function will terminate otherwise the dot product of the vectors will be performed. It then loops through the full length of vector01 as we iterate throught it. It performs the dot product of the two vectors before finally returning the expected output.
+
+vector01 = [2, 3, 4]
+vector02 = [4, 2, 1]
+vector03 = [2, 4]
+vector04 = [5, 3, 1]
+vector05 = [2]
+vector06 = 'this is wrong'
+# above are test cases for the function dot. Each pair of test cases should be computed one at a time inorder to see how each input effects the corresponding output. 
+print(dot(vector01,vector02))
+#print(dot(vector03,vector04))
+#print(dot(vector05,vector06))
+
+
+
+
+# vecSubtract takes two vectors and returns the result of the subtraction of the two vectors.
+def vecSubtract(vector01,vector02):
+  '''
+  This function takes two vectors as it's arguements. The function subtracts the corresponding elements from both vectors, until the final desired vector is obtained.
+  '''
+  if len(vector01) != len(vector02):
+      print('invalid input')
+  else: 
+    result = []
+    for i in range(len(vector01)):
+      total = vector01[i] - vector02[i]
+      result.append(total)
+  return result
+# The funciton above first sets a test case to make sure the proper dimensions are obtained inorder to be able to perform the vector subtraction. If the dimensions are incorrect the function will terminate otherwise the vector subtraction will be performed. It then loops through the full length of vector01 as we iterate throught it. It performs the vector subtraction from each given element of vector01 to the correct given element of vector02. Next it appends the result of the given vector subtraction. Finally it returns that result. 
+
+# Below are test cases used to test the function vecSubtract. Each pair of test cases should be computed seperatly in order to see the effect on the final ouput.
+vector01 = [4,2,2]
+vector02 = [1,1,1]
+vector03 = [2, 1]
+vector04 = [6, 2, 1]
+vector05 = [2]
+vector06 = 'this is wrong'
+print (vecSubtract(vector01,vector02))
+#print(vecSubtract(vector03,vector04))
+#print(vecSubtract(vector05,vector06))
+
+
+
+
+
+# scalarVec takes a scalar and a vector and returns their multiplication output.
+def scalarVecMulti(scalar,vector):
+  '''
+  This function takes a scalar and a vector as it's arguments. The function then multiplies the scalar through each corresponding element of the vector before returning the final vector.
+  '''
+  result = []
+  for i in vector:
+    result.append(i * scalar)
+  return result
+# The function above loops through every element of the given vector and multiplies it by the given scalar. It then takes the updated elements of the vector and appends them to the new vector. Finally it returns the result as the new updated vector.
+  
+# the below test cases are used to test the function scalarVec. Each pair of test cases should be computed seperately in order to see the effect on the corresponding output.
+scalar1 = 2
+scalar2 = [5]
+scalar3 = [[4, 2]]
+
+vector1 = [1, 3, 5]
+vector2 = 4
+vector3 = 'vector'
+print(scalarVecMulti(scalar1,vector1))
+#print(scalarVecMulti(scalar2,vector2))
+#print(scalarVecMulti(scalar3,vector3)
+
+
+# infNorm takes a vector and returns the infinity norm of that vector.
+def infNorm(vector):
+  '''
+  This is a function that takes a given vector as its argument and runs through each individiual element of the vector computing each absolute value, until the max absolute value of the vector is computed and is returned as the infinity norm of the vector.
+  '''
+  norm = abs(vector[0])
+  for i in vector:
+    if abs(i) > norm:
+      norm = abs(i)
+  return norm
+# The function above defines the norm to be the absolute value of the given elements of the vector. It then loops through the absolute value of each individual element of that vector. The if statement checks if the given absolute value of that element is greater then the previous case, if that is true it becomes the norm. This loop reoccurs, until the maximum absolute value of the vector is found. This becomes the infinity norm of that vector.
+
+# Below are test cases used to test the function infNorm. Each vector should be computed seperately to in order to see the effect the given vector has on the output. 
+
+vector = [22, 2, 11]
+vector01 = [[2], [3]]
+vector02 = 'true'
+print(infNorm(vector))
+#print(infNorm(vector01))
+#print(infNorm(vector02))
+
+# normalize takes a vector and returns the normalized vector in respect to the infinity norm of that vector.
+def normalize(vector):
+  '''
+  This function takes a vector as its argument and returns the normalized vector in respect to the infinity norm by updating each individual element of the vector, until the final normalized vector is returned.
+  '''
+  norm = infNorm(vector)
+  return [i/norm for i in vector] 
+# The function above first takes the infinity norm of the given vector. It then divides all elements of the vector by the norm of the given vector. Finally it returns the final normalized vector with respect to the infinity norm.
+vector = [2, 5, 7]
+vector01 = [[2, 4], [8, 3]]
+vector02 = 'normalize vector'
+
+print(normalize(vector))
+#print(normalize(vector01))
+#print(normalize(vector02))
+
+
+      
